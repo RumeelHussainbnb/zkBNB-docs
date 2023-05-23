@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "zkBNB -  Official Documentation",
   tagline: "A trustless and scaling solution for BNB Smart Chain",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://rumeelhussainbnb.github.io/",
+  baseUrl: "/zkBNB-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -60,13 +60,13 @@ const config = {
       navbar: {
         logo: {
           alt: "zkBNB Logo",
-          src: "img/logo.svg"
+          src: "img/logo.svg",
         },
         items: [
           {
             label: "API Docs",
             position: "left",
-            to: "/docs/category/zkbnb-api"
+            to: "/docs/zkbnb-api"
           },
         ]
       },

@@ -25,7 +25,7 @@ const sidebars = {
         title: "zkBNB API",
         description:
           "zkBNB is a ground-breaking scaling solution form BNB Chain, built on ZK (Zero Knowledge) Rollup architecture. BNB Chain provides a set of APIs to developers for accessing zkBNB. This is the official documentation of public APIs for zkBNB",
-        slug: "/category/zkbnb-api"
+        slug: "/zkbnb-api"
       },
       // @ts-ignore
       items: require("./docs/zkbnb/sidebar.js")
