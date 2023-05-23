@@ -9,7 +9,7 @@ const config = {
   title: "zkBNB -  Official Documentation",
   tagline: "A trustless and scaling solution for BNB Smart Chain",
   url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  baseUrl: "/zkBNB-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
