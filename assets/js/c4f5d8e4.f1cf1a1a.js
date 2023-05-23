@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzkbnb_docs=self.webpackChunkzkbnb_docs||[]).push([[4195],{62841:(e,c,n)=>{n.r(c),n.d(c,{default:()=>k});var s=n(67294),b=n(16550);function k(){return s.createElement(b.l_,{to:"/zkBNB-docs/docs/zkbnb-api"})}}}]);
