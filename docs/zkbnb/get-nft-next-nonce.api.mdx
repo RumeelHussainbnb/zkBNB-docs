@@ -1,0 +1,34 @@
+---
+id: get-nft-next-nonce
+title: "Get nft next nonce"
+description: "Get nft next nonce"
+sidebar_label: "Get nft next nonce"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Nft"],"operationId":"GetNftNextNonce","parameters":[{"name":"nft_index","in":"query","description":"The nft index query condition for getting the next nonce data.","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"A successful response.","content":{"application/json":{"schema":{"title":"NextNonce","required":["nonce"],"type":"object","properties":{"code":{"type":"integer","format":"int32"},"message":{"type":"string"},"nonce":{"type":"integer","format":"int64"}}}}}}},"description":"Get nft next nonce","method":"get","path":"/api/v1/nftNextNonce","servers":[{"url":"https://testapi.zkbnbchain.org/"}],"info":{"title":"ZKBNB API Document","description":"Public APIs for zkbnb","version":"1.0"},"postman":{"name":"Get nft next nonce","description":{"type":"text/plain"},"url":{"path":["api","v1","nftNextNonce"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The nft index query condition for getting the next nonce data.","type":"text/plain"},"key":"nft_index","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/zkbnb/zkbnb-api-document
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get nft next nonce
+
+
+
+Get nft next nonce
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"nft_index","in":"query","description":"The nft index query condition for getting the next nonce data.","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+A successful response.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"nonce"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"nonce\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

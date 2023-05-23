@@ -1,0 +1,1860 @@
+openapi: 3.0.1
+info:
+  title: ZKBNB API Document
+  description: Public APIs for zkbnb
+  version: "1.0"
+servers:
+- url: https://testapi.zkbnbchain.org/
+paths:
+  /:
+    get:
+      tags:
+      - Root
+      summary: Get status of zkbnb
+      operationId: GetStatus
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+  /api/v1/GetNftByNftIndex:
+    get:
+      tags:
+      - Nft
+      summary: Get nft of nft index
+      operationId: GetNftByNftIndex
+      parameters:
+      - name: nft_index
+        in: query
+        description: The nft index query condition to query nft data.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NftEntity'
+  /api/v1/account:
+    get:
+      tags:
+      - Account
+      summary: Get account by account's l1_address, index
+      operationId: GetAccount
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the account data, and it could
+          be l1_address or account index.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the account data, and it is
+          specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+  /api/v1/accountNfts:
+    get:
+      tags:
+      - Nft
+      summary: Get nfts of a specific account
+      operationId: GetAccountNfts
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the nft account data, and it
+          could be l1_address or account index.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the nft account data, and it
+          is specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the nft account
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the nft account
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Nfts'
+  /api/v1/accountPendingTxs:
+    get:
+      tags:
+      - Transaction
+      summary: Get pending transactions of a specific account
+      operationId: GetAccountPendingTxs
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the pending transactions belonging
+          to the account, and it could be l1_address or account index
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the pending transactions belonging
+          to the account, and it is specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        description: The transaction types of the pending transactions to be queried,
+          and it could be like TxTypeDeposit, TxTypeTransfer or TxTypeAtomicMatch
+          and so on.
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/accountTxs:
+    get:
+      tags:
+      - Transaction
+      summary: Get transactions of a specific account
+      operationId: GetAccountTxs
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the transactions belonging to
+          the account, and it could be l1_address or account index.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the transactions belonging to
+          the account, and it is specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        description: The transaction types of the transactions to be queried, and
+          it could be like TxTypeDeposit, TxTypeTransfer or TxTypeAtomicMatch etc.
+        schema:
+          type: integer
+          format: int64
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the transactions
+          belonging to the account.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the transactions
+          belonging to the account.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/accounts:
+    get:
+      tags:
+      - Account
+      summary: Get accounts
+      operationId: GetAccounts
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the account list
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the account
+          list data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+  /api/v1/asset:
+    get:
+      tags:
+      - Asset
+      summary: Get asset
+      operationId: GetAsset
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the asset data, and it could
+          be asset id or asset symbol.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the asset data, and it is specified
+          by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+  /api/v1/assets:
+    get:
+      tags:
+      - Asset
+      summary: Get assets
+      operationId: GetAssets
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the asset list
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the asset
+          list data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assets'
+  /api/v1/block:
+    get:
+      tags:
+      - Block
+      summary: Get block by its height or commitment
+      operationId: GetBlock
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the block data, and it could
+          be block height or block commitment.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the block data, and it is specified
+          by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+  /api/v1/blockTxs:
+    get:
+      tags:
+      - Transaction
+      summary: Get transactions in a block
+      operationId: GetBlockTxs
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the transactions in the specified
+          block, and it could be block height or block commitment.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the transactions in the specified
+          block, and it is specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/blocks:
+    get:
+      tags:
+      - Block
+      summary: Get blocks
+      operationId: GetBlocks
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the block data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the block
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Blocks'
+  /api/v1/currentHeight:
+    get:
+      tags:
+      - Block
+      operationId: GetCurrentHeight
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrentHeight'
+  /api/v1/executedTxs:
+    get:
+      tags:
+      - Transaction
+      summary: Get executed transactions which previously added to tx pool
+      operationId: GetExecutedTxs
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the executed transactions
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the executed
+          transactions data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: from_hash
+        in: query
+        description: The transaction hash query condition for the executed transactions
+          data.
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/gasAccount:
+    get:
+      tags:
+      - Info
+      summary: Get gas account, who will charge gas fees for transactions
+      operationId: GetGasAccount
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GasAccount'
+  /api/v1/gasFee:
+    get:
+      tags:
+      - Info
+      summary: Get gas fee amount for using a specific asset as gas asset
+      operationId: GetGasFee
+      parameters:
+      - name: asset_id
+        in: query
+        description: The asset id query condition for querying gas fee configuration.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: tx_type
+        in: query
+        description: The transaction type query condition for querying gas fee configuration.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GasFee'
+  /api/v1/gasFeeAssets:
+    get:
+      tags:
+      - Info
+      summary: Get supported gas fee assets
+      operationId: GetGasFeeAssets
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GasFeeAssets'
+  /api/v1/getNftByTxHash:
+    get:
+      tags:
+      - Nft
+      summary: Get nft_index of a nft by txHash
+      operationId: GetNftByTxHash
+      parameters:
+      - name: tx_hash
+        in: query
+        description: The tx hash query condition to query nft data.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NftIndex'
+  /api/v1/getProtocolRate:
+    get:
+      tags:
+      - Info
+      summary: Get zkbnb platform fee rate
+      operationId: getProtocolRate
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProtocolRate'
+  /api/v1/l2Signature:
+    post:
+      tags:
+      - Transaction
+      summary: Get transaction signature body
+      operationId: GetL2SignatureBody
+      requestBody:
+        description: The transaction request body to get the transaction signature
+          body from the system.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqSendTx'
+        required: true
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignBody'
+      x-codegen-request-body-name: body
+  /api/v1/layer2BasicInfo:
+    get:
+      tags:
+      - Info
+      summary: Get zkbnb general info, including contract address, and count of transactions
+        and active users
+      operationId: GetLayer2BasicInfo
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer2BasicInfo'
+  /api/v1/maxCollectionId:
+    get:
+      tags:
+      - Nft
+      summary: Get max nft collection id for a specific account
+      operationId: GetMaxCollectionId
+      parameters:
+      - name: account_index
+        in: query
+        description: The specific account index to get the max nft collection id.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxCollectionId'
+  /api/v1/maxOfferId:
+    get:
+      tags:
+      - Nft
+      summary: Get max nft offer id for a specific account
+      operationId: GetMaxOfferId
+      parameters:
+      - name: account_index
+        in: query
+        description: The account index query condition for querying maximum offer
+          id in the nft situation.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxOfferId'
+  /api/v1/mergedAccountTxs:
+    get:
+      tags:
+      - transaction
+      summary: Get merged transactions(including tx and pool_tx) of a specific account
+      operationId: GetMergedAccountTxs
+      parameters:
+      - name: by
+        in: query
+        description: The query condition type to get the transactions belonging to
+          the account, and it could be l1_address or account index.
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        description: The query condition value to get the transactions belonging to
+          the account, and it is specified by the 'by' parameter above.
+        required: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        description: The transaction types of the transactions to be queried, and
+          it could be like TxTypeDeposit, TxTypeTransfer or TxTypeAtomicMatch etc.
+        schema:
+          type: integer
+          format: int64
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the transactions
+          belonging to the account.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the transactions
+          belonging to the account.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/nextNonce:
+    get:
+      tags:
+      - Transaction
+      summary: Get next nonce
+      operationId: GetNextNonce
+      parameters:
+      - name: account_index
+        in: query
+        description: The account index query condition for getting the next nonce
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NextNonce'
+  /api/v1/nftNextNonce:
+    get:
+      tags:
+      - Nft
+      summary: Get nft next nonce
+      operationId: GetNftNextNonce
+      parameters:
+      - name: nft_index
+        in: query
+        description: The nft index query condition for getting the next nonce data.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NextNonce'
+  /api/v1/pendingTxs:
+    get:
+      tags:
+      - Transaction
+      summary: Get pending transactions
+      operationId: GetPendingTxs
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the pending transactions
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the pending
+          transactions data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/rollbacks:
+    get:
+      tags:
+      - info
+      summary: Get rollbacks
+      operationId: GetRollbacks
+      parameters:
+      - name: from_block_height
+        in: query
+        description: The starting block height for performing the rollback operation.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the pending transactions
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the pending
+          transactions data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rollbacks'
+  /api/v1/search:
+    get:
+      tags:
+      - Info
+      summary: Search with a specific keyword
+      operationId: Search
+      parameters:
+      - name: keyword
+        in: query
+        description: The keyword condition to search for block data here, and the
+          keyword is actually the block height currently.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Search'
+  /api/v1/sendTx:
+    post:
+      tags:
+      - Transaction
+      summary: Send raw transaction
+      operationId: SendTx
+      requestBody:
+        description: The transaction request body to send the transaction to the system.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqSendTx'
+        required: true
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TxHash'
+      x-codegen-request-body-name: body
+  /api/v1/tx:
+    get:
+      tags:
+      - Transaction
+      summary: Get transaction by hash
+      operationId: GetTx
+      parameters:
+      - name: hash
+        in: query
+        description: The transaction hash condition to get the transaction data.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnrichedTx'
+  /api/v1/txs:
+    get:
+      tags:
+      - Transaction
+      summary: Get transactions which are already packed into blocks
+      operationId: GetTxs
+      parameters:
+      - name: offset
+        in: query
+        description: The query offset to get some specific range of the packed transactions
+          data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: The query limit size to get some specific range of the packed
+          transactions data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Txs'
+  /api/v1/updateNftByIndex:
+    post:
+      tags:
+      - Nft
+      summary: update nft metadata by nft_index
+      operationId: UpdateNftByIndex
+      requestBody:
+        description: Nft updating request parameter.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqUpdateNft'
+        required: true
+      responses:
+        200:
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/History'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    Account:
+      title: Account
+      required:
+      - assets
+      - index
+      - l1_address
+      - nonce
+      - pk
+      - status
+      - total_asset_value
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        status:
+          type: integer
+          format: int32
+        index:
+          type: integer
+          format: int64
+        l1_address:
+          type: string
+        pk:
+          type: string
+        nonce:
+          type: integer
+          format: int64
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountAsset'
+        total_asset_value:
+          type: string
+    AccountAsset:
+      title: AccountAsset
+      required:
+      - balance
+      - id
+      - name
+      - price
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        balance:
+          type: string
+        price:
+          type: string
+    Accounts:
+      title: Accounts
+      required:
+      - accounts
+      - total
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int32
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleAccount'
+    Asset:
+      title: Asset
+      required:
+      - address
+      - decimals
+      - icon
+      - id
+      - is_gas_asset
+      - name
+      - price
+      - symbol
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        decimals:
+          type: integer
+          format: int32
+        symbol:
+          type: string
+        address:
+          type: string
+        price:
+          type: string
+        is_gas_asset:
+          type: integer
+          format: int32
+        icon:
+          type: string
+    Assets:
+      title: Assets
+      required:
+      - assets
+      - total
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int32
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+    Block:
+      title: Block
+      required:
+      - commitment
+      - committed_at
+      - committed_tx_hash
+      - height
+      - pending_on_chain_operations_hash
+      - pending_on_chain_operations_pub_data
+      - priority_operations
+      - size
+      - state_root
+      - status
+      - txs
+      - verified_at
+      - verified_tx_hash
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        commitment:
+          type: string
+        height:
+          type: integer
+          format: int64
+        state_root:
+          type: string
+        priority_operations:
+          type: integer
+          format: int64
+        pending_on_chain_operations_hash:
+          type: string
+        pending_on_chain_operations_pub_data:
+          type: string
+        committed_tx_hash:
+          type: string
+        committed_at:
+          type: integer
+          format: int64
+        verified_tx_hash:
+          type: string
+        verified_at:
+          type: integer
+          format: int64
+        txs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tx'
+        status:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: uint16
+    Blocks:
+      title: Blocks
+      required:
+      - blocks
+      - total
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int32
+        blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Block'
+    ContractAddress:
+      title: ContractAddress
+      required:
+      - address
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+    CurrentHeight:
+      title: CurrentHeight
+      required:
+      - height
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        height:
+          type: integer
+          format: int64
+    EnrichedTx:
+      title: EnrichedTx
+      required:
+      - committed_at
+      - executed_at
+      - verified_at
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        tx:
+          $ref: '#/components/schemas/Tx'
+        committed_at:
+          type: integer
+          format: int64
+        verified_at:
+          type: integer
+          format: int64
+        executed_at:
+          type: integer
+          format: int64
+    GasAccount:
+      title: GasAccount
+      required:
+      - index
+      - l1_address
+      - status
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        status:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        l1_address:
+          type: string
+    GasFee:
+      title: GasFee
+      required:
+      - gas_fee
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        gas_fee:
+          type: string
+    GasFeeAssets:
+      title: GasFeeAssets
+      required:
+      - assets
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+    History:
+      title: History
+      required:
+      - ipns_id
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        ipns_id:
+          type: string
+    Layer2BasicInfo:
+      title: Layer2BasicInfo
+      required:
+      - block_committed
+      - block_verified
+      - contract_addresses
+      - today_active_user_count
+      - today_transaction_count
+      - total_transaction_count
+      - yesterday_active_user_count
+      - yesterday_transaction_count
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        block_committed:
+          type: integer
+          format: int64
+        block_verified:
+          type: integer
+          format: int64
+        total_transaction_count:
+          type: integer
+          format: int64
+        yesterday_transaction_count:
+          type: integer
+          format: int64
+        today_transaction_count:
+          type: integer
+          format: int64
+        yesterday_active_user_count:
+          type: integer
+          format: int64
+        today_active_user_count:
+          type: integer
+          format: int64
+        contract_addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractAddress'
+    MaxCollectionId:
+      title: MaxCollectionId
+      required:
+      - collection_id
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        collection_id:
+          type: integer
+          format: int64
+    MaxOfferId:
+      title: MaxOfferId
+      required:
+      - offer_id
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        offer_id:
+          type: integer
+          format: int64
+    NextNonce:
+      title: NextNonce
+      required:
+      - nonce
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        nonce:
+          type: integer
+          format: int64
+    Nft:
+      title: Nft
+      required:
+      - collection_id
+      - content_hash
+      - creator_account_index
+      - creator_l1_address
+      - index
+      - ipfs_id
+      - l1_address
+      - l1_token_id
+      - owner_account_index
+      - owner_l1_address
+      - royalty_rate
+      type: object
+      properties:
+        index:
+          type: integer
+          format: int64
+        creator_account_index:
+          type: integer
+          format: int64
+        creator_l1_address:
+          type: string
+        owner_account_index:
+          type: integer
+          format: int64
+        owner_l1_address:
+          type: string
+        content_hash:
+          type: string
+        l1_address:
+          type: string
+        l1_token_id:
+          type: string
+        royalty_rate:
+          type: integer
+          format: int64
+        collection_id:
+          type: integer
+          format: int64
+        ipfs_id:
+          type: string
+    NftEntity:
+      title: NftEntity
+      required:
+      - nft
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        nft:
+          $ref: '#/components/schemas/Nft'
+    NftIndex:
+      title: NftIndex
+      required:
+      - index
+      - ipfs_id
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        index:
+          type: integer
+          format: int64
+        ipfs_id:
+          type: string
+    Nfts:
+      title: Nfts
+      required:
+      - nfts
+      - total
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        nfts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nft'
+    ProtocolRate:
+      title: ProtocolRate
+      required:
+      - protocol_rate
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        protocol_rate:
+          type: string
+    ReqAccountParam:
+      title: ReqAccountParam
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+    ReqGetAccount:
+      title: ReqGetAccount
+      required:
+      - by
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+    ReqGetAccountNfts:
+      title: ReqGetAccountNfts
+      required:
+      - by
+      - limit
+      - offset
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+    ReqGetAccountPendingTxs:
+      title: ReqGetAccountPendingTxs
+      required:
+      - by
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+        types:
+          type: array
+          items:
+            type: integer
+            format: int64
+    ReqGetAccountTxs:
+      title: ReqGetAccountTxs
+      required:
+      - by
+      - limit
+      - offset
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+        types:
+          type: array
+          items:
+            type: integer
+            format: int64
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+    ReqGetAsset:
+      title: ReqGetAsset
+      required:
+      - by
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+    ReqGetBlock:
+      title: ReqGetBlock
+      required:
+      - by
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+    ReqGetBlockTxs:
+      title: ReqGetBlockTxs
+      required:
+      - by
+      - value
+      type: object
+      properties:
+        by:
+          type: string
+        value:
+          type: string
+    ReqGetGasFee:
+      title: ReqGetGasFee
+      required:
+      - asset_id
+      - tx_type
+      type: object
+      properties:
+        asset_id:
+          type: integer
+          format: int32
+        tx_type:
+          type: integer
+          format: int32
+    ReqGetMaxCollectionId:
+      title: ReqGetMaxCollectionId
+      required:
+      - account_index
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int64
+    ReqGetMaxOfferId:
+      title: ReqGetMaxOfferId
+      required:
+      - account_index
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int32
+    ReqGetNextNonce:
+      title: ReqGetNextNonce
+      required:
+      - account_index
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int32
+    ReqGetNft:
+      title: ReqGetNft
+      required:
+      - nft_index
+      type: object
+      properties:
+        nft_index:
+          type: integer
+          format: int64
+    ReqGetNftIndex:
+      title: ReqGetNftIndex
+      required:
+      - tx_hash
+      type: object
+      properties:
+        tx_hash:
+          type: string
+    ReqGetNftNextNonce:
+      title: ReqGetNftNextNonce
+      required:
+      - nft_index
+      type: object
+      properties:
+        nft_index:
+          type: integer
+          format: int64
+    ReqGetRange:
+      title: ReqGetRange
+      required:
+      - limit
+      - offset
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+    ReqGetRangeWithFromHash:
+      title: ReqGetRangeWithFromHash
+      required:
+      - limit
+      - offset
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        from_hash:
+          type: string
+    ReqGetRollbacks:
+      title: ReqGetRollbacks
+      required:
+      - from_block_height
+      - limit
+      - offset
+      type: object
+      properties:
+        from_block_height:
+          type: integer
+          format: int64
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+    ReqGetTx:
+      title: ReqGetTx
+      required:
+      - hash
+      type: object
+      properties:
+        hash:
+          type: string
+    ReqSearch:
+      title: ReqSearch
+      required:
+      - keyword
+      type: object
+      properties:
+        keyword:
+          type: string
+    ReqSendTx:
+      title: ReqSendTx
+      required:
+      - tx_info
+      - tx_type
+      type: object
+      properties:
+        tx_type:
+          type: integer
+          format: int32
+        tx_info:
+          type: string
+    ReqUpdateNft:
+      title: ReqUpdateNft
+      required:
+      - tx_info
+      type: object
+      properties:
+        tx_info:
+          type: string
+    ResultCode:
+      title: ResultCode
+      required:
+      - code
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+    Rollback:
+      title: Rollback
+      required:
+      - created_at
+      - from_block_height
+      - from_tx_hash
+      - id
+      type: object
+      properties:
+        from_block_height:
+          type: integer
+          format: int64
+        from_tx_hash:
+          type: string
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: integer
+          format: int64
+    Rollbacks:
+      title: Rollbacks
+      required:
+      - rollbacks
+      - total
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int32
+        rollbacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rollback'
+    Search:
+      title: Search
+      required:
+      - data_type
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        data_type:
+          type: integer
+          format: int32
+    SignBody:
+      title: SignBody
+      required:
+      - sign_body
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        sign_body:
+          type: string
+    SimpleAccount:
+      title: SimpleAccount
+      required:
+      - index
+      - l1_address
+      - pk
+      type: object
+      properties:
+        index:
+          type: integer
+          format: int64
+        l1_address:
+          type: string
+        pk:
+          type: string
+    Status:
+      title: Status
+      required:
+      - network_id
+      - status
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        network_id:
+          type: integer
+          format: int32
+    Tx:
+      title: Tx
+      required:
+      - account_index
+      - amount
+      - asset_id
+      - asset_name
+      - block_height
+      - collection_id
+      - created_at
+      - expire_at
+      - extra_info
+      - gas_fee
+      - gas_fee_asset_id
+      - hash
+      - index
+      - info
+      - l1_address
+      - memo
+      - native_address
+      - nft_index
+      - nonce
+      - state_root
+      - status
+      - to_account_index
+      - to_l1_address
+      - type
+      - verify_at
+      type: object
+      properties:
+        hash:
+          type: string
+        type:
+          type: integer
+          format: int64
+        amount:
+          type: string
+        info:
+          type: string
+        status:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        gas_fee_asset_id:
+          type: integer
+          format: int64
+        gas_fee:
+          type: string
+        nft_index:
+          type: integer
+          format: int64
+        collection_id:
+          type: integer
+          format: int64
+        asset_id:
+          type: integer
+          format: int64
+        asset_name:
+          type: string
+        native_address:
+          type: string
+        extra_info:
+          type: string
+        memo:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+        l1_address:
+          type: string
+        nonce:
+          type: integer
+          format: int64
+        expire_at:
+          type: integer
+          format: int64
+        block_height:
+          type: integer
+          format: int64
+        created_at:
+          type: integer
+          format: int64
+        verify_at:
+          type: integer
+          format: int64
+        state_root:
+          type: string
+        to_account_index:
+          type: integer
+          format: int64
+        to_l1_address:
+          type: string
+    TxHash:
+      title: TxHash
+      required:
+      - tx_hash
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        tx_hash:
+          type: string
+    Txs:
+      title: Txs
+      required:
+      - total
+      - txs
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int32
+        txs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tx'

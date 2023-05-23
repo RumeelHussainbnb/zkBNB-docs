@@ -1,0 +1,34 @@
+---
+id: get-accounts
+title: "Get accounts"
+description: "Get accounts"
+sidebar_label: "Get accounts"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Account"],"operationId":"GetAccounts","parameters":[{"name":"offset","in":"query","description":"The query offset to get some specific range of the account list data.","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"limit","in":"query","description":"The query limit size to get some specific range of the account list data.","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"A successful response.","content":{"application/json":{"schema":{"title":"Accounts","required":["accounts","total"],"type":"object","properties":{"code":{"type":"integer","format":"int32"},"message":{"type":"string"},"total":{"type":"integer","format":"int32"},"accounts":{"type":"array","items":{"title":"SimpleAccount","required":["index","l1_address","pk"],"type":"object","properties":{"index":{"type":"integer","format":"int64"},"l1_address":{"type":"string"},"pk":{"type":"string"}}}}}}}}}},"description":"Get accounts","method":"get","path":"/api/v1/accounts","servers":[{"url":"https://testapi.zkbnbchain.org/"}],"info":{"title":"ZKBNB API Document","description":"Public APIs for zkbnb","version":"1.0"},"postman":{"name":"Get accounts","description":{"type":"text/plain"},"url":{"path":["api","v1","accounts"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The query offset to get some specific range of the account list data.","type":"text/plain"},"key":"offset","value":""},{"disabled":false,"description":{"content":"(Required) The query limit size to get some specific range of the account list data.","type":"text/plain"},"key":"limit","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/zkbnb/zkbnb-api-document
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get accounts
+
+
+
+Get accounts
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"offset","in":"query","description":"The query offset to get some specific range of the account list data.","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"limit","in":"query","description":"The query limit size to get some specific range of the account list data.","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+A successful response.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"total"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>accounts</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"index"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"l1_address"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"pk"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"total\": 0,\n  \"accounts\": [\n    {\n      \"index\": 0,\n      \"l1_address\": \"string\",\n      \"pk\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      
