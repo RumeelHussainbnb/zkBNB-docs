@@ -22,7 +22,7 @@ paths:
   /api/v1/GetNftByNftIndex:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get nft of nft index
       operationId: GetNftByNftIndex
       parameters:
@@ -71,7 +71,7 @@ paths:
   /api/v1/accountNfts:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get nfts of a specific account
       operationId: GetAccountNfts
       parameters:
@@ -477,7 +477,7 @@ paths:
   /api/v1/getNftByTxHash:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get nft_index of a nft by txHash
       operationId: GetNftByTxHash
       parameters:
@@ -546,7 +546,7 @@ paths:
   /api/v1/maxCollectionId:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get max nft collection id for a specific account
       operationId: GetMaxCollectionId
       parameters:
@@ -567,7 +567,7 @@ paths:
   /api/v1/maxOfferId:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get max nft offer id for a specific account
       operationId: GetMaxOfferId
       parameters:
@@ -662,7 +662,7 @@ paths:
   /api/v1/nftNextNonce:
     get:
       tags:
-      - Nft
+      - NFT
       summary: Get nft next nonce
       operationId: GetNftNextNonce
       parameters:
@@ -713,7 +713,7 @@ paths:
   /api/v1/rollbacks:
     get:
       tags:
-      - info
+      - Rollbacks
       summary: Get rollbacks
       operationId: GetRollbacks
       parameters:
@@ -842,11 +842,11 @@ paths:
   /api/v1/updateNftByIndex:
     post:
       tags:
-      - Nft
+      - NFT
       summary: update nft metadata by nft_index
       operationId: UpdateNftByIndex
       requestBody:
-        description: Nft updating request parameter.
+        description: NFT updating request parameter.
         content:
           application/json:
             schema:
@@ -1263,8 +1263,8 @@ components:
         nonce:
           type: integer
           format: int64
-    Nft:
-      title: Nft
+    NFT:
+      title: NFT
       required:
       - collection_id
       - content_hash
@@ -1354,7 +1354,7 @@ components:
         nfts:
           type: array
           items:
-            $ref: '#/components/schemas/Nft'
+            $ref: '#/components/schemas/NFT'
     ProtocolRate:
       title: ProtocolRate
       required:
