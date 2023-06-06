@@ -31,8 +31,8 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          //editUrl:
-            //"https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl:
+            "https://github.com/RumeelHussainbnb/zkBNB-docs",
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi
         },
@@ -41,7 +41,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+            "https://github.com/RumeelHussainbnb/zkBNB-docs"
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css")
@@ -65,9 +65,30 @@ const config = {
         },
         items: [
           {
-            label: "API Docs",
+            label: "Guide",
+            position: "left",
+            to: "/docs/guide/introduction/getting-started"
+          },
+          {
+            label: "zkBNB API",
             position: "left",
             to: "/docs/zkbnb-api"
+          },
+          {
+            label: "zkBNB SDKs",
+            position: "left",
+            to: "/docs/zkbnb-sdk-guides/"
+          },
+          {
+            label: "FAQs",
+            position: "left",
+            to: "/docs/faqs/zkbnb-faqs"
+          },
+          {
+            href: 'https://github.com/RumeelHussainbnb/zkBNB-docs',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ]
       },
