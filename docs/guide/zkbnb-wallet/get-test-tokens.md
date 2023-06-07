@@ -31,7 +31,7 @@ In order to officially use the zkBNB chain, we need to have some BNB test tokens
 
 2. Select Metamask from the popup.
 
-![zkbnb-wallet-select](../../../static/img/zkbnb-wallet-select.PNG)
+![zkbnb-wallet-select](../../../static/img/zkbnb-wallet-select.png)
 
 3. Click _Bridge Assets to L2_ to deposit BNB tokens on the zkBNB. 
 
