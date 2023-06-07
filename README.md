@@ -107,10 +107,10 @@ The website is run locally on your default browser on http://localhost:3000.
 yarn docusaurus gen-api-docs <id>
 ```
 
-* Generating API docs for 'greenfield' 
+* Generating API docs for 'zkbnb' 
 
 ```bash
-yarn docusaurus gen-api-docs greenfield
+yarn docusaurus gen-api-docs zkbnb
 ```
 
 ### Cleaning API docs 
@@ -121,8 +121,8 @@ yarn docusaurus gen-api-docs greenfield
 yarn docusaurus clean-api-docs <id>
 ```
 
-* Generating API docs for 'greenfield' 
+* Generating API docs for 'zkbnb' 
 
 ```bash
-yarn docusaurus clean-api-docs greenfield
+yarn docusaurus clean-api-docs zkbnb
 ```
