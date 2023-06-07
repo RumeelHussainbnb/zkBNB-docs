@@ -98,3 +98,31 @@ $ yarn serve
 ```
 
 The website is run locally on your default browser on http://localhost:3000.
+
+### Generating API docs 
+
+* The following command will generate API docs for all of the OpenAPI specifications 
+
+```bash
+yarn docusaurus gen-api-docs <id>
+```
+
+* Generating API docs for 'greenfield' 
+
+```bash
+yarn docusaurus gen-api-docs greenfield
+```
+
+### Cleaning API docs 
+
+* The following command will clean API docs for all of the OpenAPI specifications 
+
+```bash
+yarn docusaurus clean-api-docs <id>
+```
+
+* Generating API docs for 'greenfield' 
+
+```bash
+yarn docusaurus clean-api-docs greenfield
+```
