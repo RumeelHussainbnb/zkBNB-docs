@@ -9,7 +9,7 @@ In this section of the documentation, we cover FAQs related to zkBNB. For easy n
 * [Gas and Fees](gas-and-fees.md)
 * [Onboarding](onboarding.md)
 * [Contract](contract.md)
-* [Miniting and Royalities](miniting-and-royalities.md)
+* [Miniting and Royalities](minting-and-royalities.md)
 * [Asset Management](asset-management.md)
 
 :::info Don't see your question?
