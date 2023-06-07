@@ -9,8 +9,8 @@ title: What powers zkBNB
 
 zkBNB is built using zk rollup technology is supposed to work as a Layer-2 for BNB Smart Chain (BSC).
 
-## How do ZK Rollups work?
-ZK rollups consist of two main components:
+## How do zk-Rollups work?
+zk-Rollups consist of two main components:
 
 - **Off-chain batching mechanism:** generates a cryptographic proof from a batch of transactions in a highly compressed form together with the previous state root and the new state root.
 
@@ -26,7 +26,7 @@ The key tech stack that powers the zkBNB are the BAS-SMT and zkBNB-crypto.
 Unlike most rollup solution to put the state tree in memory, [BAS-SMT](https://github.com/bnb-chain/zkbnb-smt/) is a versioned, snapshottable (immutable) sparse tree for persistent data. BAS-SMT is the key factor for the massive adoption of zkBNB.
 
 ### Circuit Model
-[zkBNB Crypto](https://github.com/bnb-chain/zkbnb-crypto) is the library that describe the proving circuit. Once the ZK-rollup node has enough transactions, it aggregates them into a batch and compiles inputs for the proving circuit to compile into a succinct zk-proof.
+[zkBNB Crypto](https://github.com/bnb-chain/zkbnb-crypto) is the library that describe the proving circuit. Once the zk-Rollup node has enough transactions, it aggregates them into a batch and compiles inputs for the proving circuit to compile into a succinct zk-proof.
 
 zkbnb-crypto is the crypto library for zkBNB Protocol. It implements rollup block circuit and supports exporting groth16/plonk proving key, verifying key and solidity verifier contract. In order to be able to generate a proof from the prover side for the verifier to verify it, we use the argument system (zk-SNARK) for our arithmetic circuit.
 

@@ -14,7 +14,7 @@ decentralized manner. zkBNB and BSC share the same token universe for BNB, BEP2 
 
 User can **deposit, transfer, and withdraw** both non-fungible token and fungible token on zkBNB.
 
-Users enter the ZK-rollup by **depositing tokens** in the rollup's contract deployed on the BSC. The zkBNB monitor will track deposits and submit it as a layer2 transaction, once committer verifies the transaction, users get funds on their account, they can start transacting by sending transactions to the committer for processing.
+Users enter the zk-rollup by **depositing tokens** in the rollup's contract deployed on the BSC. The zkBNB monitor will track deposits and submit it as a layer2 transaction, once committer verifies the transaction, users get funds on their account, they can start transacting by sending transactions to the committer for processing.
 
 User can **transfer** any amount of funds to any existed accounts on zkBNB by sending a signed transaction to the network.
 

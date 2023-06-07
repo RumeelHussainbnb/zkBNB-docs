@@ -8,7 +8,7 @@ The SDK offers various L2 operations such as get account details, get gas fees e
 To understand the entire scope of operations available, see [API Reference](/docs/zkbnb-api). 
 In addition, SDK comes with a crypto component for signing txs and sending signed txs to zkBNB L2.
 
-This SDK does not provide methods to interact with ZKBNB L1.
+This SDK does not provide methods to interact with zkBNB L1.
 ## Install
 
 Using npm:
@@ -32,7 +32,7 @@ Using pnpm:
 ## Usage
 
 
-### Init ZKClient and ZkCrypto
+### Init zkClient and zkCrypto
 
 ```javascript
     const { Client } = require('@bnb-chain/zkbnb-js-sdk');
@@ -94,7 +94,7 @@ Using pnpm:
 
 ```
 
-### Sign and send txs to ZKBNB L2
+### Sign and send txs to zkBNB L2
 Currently, we only support sending tx by seed. the seed is a random hex string which you used in register ZNS
 :::note Generate your seed
 
@@ -187,7 +187,7 @@ Currently, we only support sending tx by seed. the seed is a random hex string w
       //Sign tx with the seed phrase using zkBNB crypto component
       const signedTx = ZK.signTransfer(seed, JSON.stringify(txInfo))
     
-      //Send signed tx to ZKBNB L2
+      //Send signed tx to zkBNB L2
       const txHash = await client.sendRawTx(TxType.TxTypeTransfer.toString(), signedTx)
       return txHash
     }

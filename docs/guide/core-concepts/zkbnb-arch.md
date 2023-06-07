@@ -4,7 +4,9 @@ title: zkBNB Architecture
 
 # zkBNB Architecture
 
-## ZK Rollup Architecture
+zkBNB is a zero-knowledge scalability solution, or L2, which focuses on straightforward token operations and built-in marketplaces for Gaming and Social use cases. It serves as a scalability solution for the BNB Smart Chain by bundling multiple transactions into a single transaction, reducing costs for on-chain transactions. The Zero Knowledge proof system used in zkBNB ensures a much faster finality time of the L2 transactions, that helps improve the user experience. zkBNB is essentially built on the zk-Rollup architecture.
+
+## zk-Rollup Architecture
 
 ![Framework](../../../static/img/Frame_work.png)
 
@@ -47,8 +49,8 @@ users can make further transfers without waiting.
 
 ## Censorship resistance
 Committer will execute transactions, produce batches. While this ensures efficiency, it increases the risk of censorship
-: malicious ZK-rollup committer can censor users by refusing to include their transactions in batches.
+: malicious zk-rollup committer can censor users by refusing to include their transactions in batches.
 
 As a security measure, zkBNB allow users to submit transactions directly to the rollup contract on Mainnet if
-they think they are being censored by the operator. This allows users to force an exit from the ZK-rollup to BSC without 
+they think they are being censored by the operator. This allows users to force an exit from the zk-rollup to BSC without 
 having to rely on the commiter's permission.

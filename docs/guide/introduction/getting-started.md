@@ -6,7 +6,9 @@ title: Guide
 
 The zkBNB is an infrastructure for developers that helps them to build large scale BSC-based apps with higher throughput and much lower or even zero transaction fees.
 
-zkBNB is built on ZK Rollup architecture. ZkBNB bundle (or "roll-up") hundreds of transactions off-chain and generates cryptographic proof. These proofs can come in the form of SNARKs (succinct non-interactive argument of knowledge) which can prove the validity of every single transaction in the Rollup Block. It means all funds are held on the BSC, while computation and storage are performed on BAS with less cost and fast speed.
+zkBNB is built on zk-Rollup architecture. ZkBNB bundle (or "roll-up") hundreds of transactions off-chain and generates cryptographic proof. These proofs can come in the form of SNARKs (succinct non-interactive argument of knowledge) which can prove the validity of every single transaction in the Rollup Block.
+
+zkBNB focuses on straightforward token operations and built-in marketplaces for Gaming and Social use cases. It serves as a scalability solution for the BNB Smart Chain by bundling multiple transactions into a single transaction, reducing costs for on-chain transactions. The Zero Knowledge proof system used in zkBNB ensures a much faster finality time of the L2 transactions, that helps improve the user experience. 
 
 ![banner](https://github.com/bnb-chain/zkbnb/raw/master/docs/assets/banner.png)
 

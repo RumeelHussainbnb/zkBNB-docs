@@ -5,8 +5,8 @@ title: Platform FAQs
 ## What is zkBNB?
 zkBNB is a zero-knowledge scalability solution, or L2, which focuses on straightforward token operations and built-in marketplaces for Gaming and Social use cases. It serves as a scalability solution for the BNB Smart Chain by bundling multiple transactions into a single transaction, reducing costs for on-chain transactions. The Zero Knowledge proof system used in zkBNB ensures a much faster finality time of the L2 transactions, that helps improve the user experience. 
 
-## What are Zero Knowledge (ZK) Rollups?
-Zero Knowledge Rollups are Layer 2 scheme that moves computation off-chain. It provides L1 security by rolling up multiple transactions into a single one and submitting validity proof back to L1. ZK Rollups only require valid proof of the final state, makingthem more private and storage-efficient comparing to storing all transaction data on L1.
+## What are Zero Knowledge (zk) Rollups?
+Zero Knowledge Rollups are Layer 2 scheme that moves computation off-chain. It provides L1 security by rolling up multiple transactions into a single one and submitting validity proof back to L1. zk Rollups only require valid proof of the final state, makingthem more private and storage-efficient comparing to storing all transaction data on L1.
 
 ## What is the connection between zkBNB and BNB Smart Chain? 
 zkBNB serves as a scalability solution for the BNB Smart Chain. It bundles multiple transactions into a single transaction and posts it on the BSC, thereby reducing the cost of on-chain transactions. Once the transactions are rolled up and posted on the BSC block, only the transaction data is stored on the BSC, which can be verified using cryptographic primitives.

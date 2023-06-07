@@ -23,7 +23,7 @@ switch to EDCSA.
 
 ### Overview
 
-zkBNB implements a ZK rollup protocol (in short "rollup" below) for:
+zkBNB implements a zk-rollup protocol (in short "rollup" below) for:
 
 - BNB and BEP20 fungible token deposit and transfer
 - BEP721 non-fungible token deposit and transfer

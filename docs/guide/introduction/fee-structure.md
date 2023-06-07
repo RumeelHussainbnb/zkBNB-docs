@@ -4,6 +4,10 @@ title: Fee Structure
 
 # Gas and Fee Structure on zkBNB
 
+:::caution 
+This is a living document and is susceptible to changes. Gas and Fee charges may differ.
+:::
+
 ## Fee Structure on zkBNB
 
 There are three types of fees associate with using zkBNB

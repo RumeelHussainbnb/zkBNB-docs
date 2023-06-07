@@ -9,7 +9,7 @@ The SDK offers various L2 operations such as get account details, get gas fees e
 To understand the entire scope of operations available, see [API Reference](/docs/zkbnb-api).
 In addition, SDK comes with a crypto component for signing txs and sending signed txs to zkBNB L2.
 
-This SDK does not provide methods to interact with ZKBNB L1.
+This SDK does not provide methods to interact with zkBNB L1.
 
 ## Install
 

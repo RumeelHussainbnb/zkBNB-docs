@@ -11,8 +11,7 @@ There are no smart contracts on zkBNB. It is not EVM compatible L2 solution. Use
 ## How do I get approved to launch on zkBNB?
 It is permissionless L2, and you do not need to get any approval for your dApp deployment.
 
-
-# What token standards are supported? 
+## What token standards are supported? 
 BNB and BEP20 created on BSC can flow freely between BSC and zkBNB. BEP721 minted on zkBNB can flow freely between BSC and ZkBNB.
 
 ## What are the contract-level requirements? How do I make my contract compatible?

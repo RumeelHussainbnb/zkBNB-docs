@@ -5,7 +5,7 @@ title: Gas and Fees
 In this document, we specify the gas and fee structure on zkBNB. 
 
 :::caution 
-This is a living document and is susceptible to changes
+This is a living document and is susceptible to changes. Gas and Fee charges may differ.
 :::
 
 
@@ -38,19 +38,6 @@ zkBNB|Protocol|2% of every NFT trade|Alice lists an NFT for 1 ETH on a marketpla
 3rd parties builds marketplace via zkBNB | Maker Marketplace Fee | "Decided by 3rd platforms" | Alice wishes to receive 0.99 ETH for her NFT assets and lists it on a marketplace that imposes a maker fee of 1%. Therefore, the price that the asset will be listed for on the marketplace is 1 ETH.
 3rd parties builds marketplace via zkBNB | Taker Marketplace Fee | Decided by 3rd platforms | Alice wishes to receive 1 ETH for her NFT assets and lists it on a marketplace. Bob wishes to buy the asset from a different marketplace that imposes a taker fee of 1% and marketplace fee is 1.5% and will therefore be presented with a buying price of 1.025 ETH inclusive of the taker marketplace fee.
 Collection royalty recipient, ie. owner of an NFT smart contract | Royalty | Decided by Creators | Alice mints a collection of assets on zkBNB and sets a 5% royalty for every asset in the collection to go to her. <br/> Bob owns an asset from Alice's collection and sets the sale price of 1 ETH. The marketplace on which he lists the asset will display a selling price of 1 ETH. <br/>When Ciaran comes along and buys this asset, he pays 1.05 ETH, 1 ETH of which goes to Bob, and 0.05 ETH goes to Alice.
-
-What kind of security does zkBNB provide?
-zkBNB shares the same level of security as BNB Smart Chain, guaranteed by the Succinct Non-interactive Argument of Knowledge (SNARK) cryptography proofs. For all the built-in operations in zkBNB, designated atomic cryptographic circuits were designed to support super-fast finality and unparalleled security.
-
-Does zkBNB support EVM?
-zkEVM is a virtual machine that simulates an environment like Ethereum, allowing Ethereum smart contracts to be deployed on a zkRollup. Generating zero-knowledge proofs is a resource-intensive process that requires specialized hardware and significant investment in time, money, and effort. This significantly increases the costs, which eventually are distributed across the rolled-up transactions. 
-
-On the contrary, zkBNB was designed to support mass adoption and the already thriving BNB Chain ecosystem. As such, instead of focusing on general-purpose EVM compatibility, zkBNB specifically focuses on the most used operation by the dApps - supported by any programming language. These include token transfers, and a built-in NFT marketplace.
-
-By providing web-based API services, developers can build a new application or easily extend the existing codebase using their favorite programming language and skillset.
-
-What advantages does zkBNB have over BNB Smart Chain?  
-
 
 
 ### When are fees charged on zkBNB?
